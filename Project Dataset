@@ -1,1 +1,25 @@
-The Dataset we're using for our project: https://legacy.baseballprospectus.com/compensation/cots/
+The dataset(s) we're using for our project:
+
+### 1. Lahman Baseball Database: Teams table (`data/teams.csv`)
+- **Source:** SABR (Society for American Baseball Research), [sabr.org/lahman-database](https://sabr.org/lahman-database/)
+- **Used for:** wins and losses, which become each team's season win % and last season's win %
+- **Years used:** 2001–2016
+
+### 2. Lahman Baseball Database: Salaries table (`data/salaries.csv`)
+- **Source:** SABR, [sabr.org/lahman-database](https://sabr.org/lahman-database/)
+- **Used for:** player salaries, added up into team payroll and relative payroll
+- **Years used:** 2001–2016 (salary data ends in 2016)
+
+### 3. FRED: Total Real GDP by Metro Area (series `RGMP` + metro code, saved in `data/metro_gdp.csv`)
+- **Source:** Federal Reserve Bank of St. Louis, [example: New York (RGMP35620)](https://fred.stlouisfed.org/series/RGMP35620). Original data from the U.S. Bureau of Economic Analysis (BEA).
+- **Used for:** total real GDP of each team's metro area (millions of chained 2017 dollars), also used to calculate population
+- **Years available:** 2001–2023
+
+### 4. FRED: Per Capita Real GDP by Metro Area (series `PCRGMP` + metro code, saved in `data/metro_gdp.csv`)
+- **Source:** Federal Reserve Bank of St. Louis, [example: New York (PCRGMP35620)](https://fred.stlouisfed.org/series/PCRGMP35620). Original data from BEA.
+- **Used for:** GDP per capita (our key predictor) and population (total GDP ÷ GDP per capita)
+- **Years available:** 2001–2023
+
+### Files created by the notebook
+- `data/team_seasons.csv`: the merged dataset (~432 team-seasons, 2002–2016)
+- `data/model_results.csv`: accuracy results for every model
